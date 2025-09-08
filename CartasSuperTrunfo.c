@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+
 int main(){
     //CEARÁ COM 148 894,442 km² DE AREA
     //POPULAÇÃO EM 2025 9.268.836 habitantes 
@@ -13,12 +15,12 @@ int main(){
     // "" ; : ''
     char estado, estado2;
     char codigo[3], condigo2[3];
-    char nome_cidade[50], nome_cidade2[50];
+   // char nome_cidade[50], nome_cidade2[50];
     int populacao, populacao2;
     float area, area2;
     float pib, pib2;
     int turismo, turismo2;
-
+    
     char print_estado[10] = "Estado: ";
     char print_codigo[10] = "Codigo: ";
     char print_nome_cidade[20] = "Nome Cidade: ";
@@ -33,23 +35,33 @@ int main(){
     printf("\n%s", print_estado);
     scanf("%s", estado);
 
-    codigo[3] = estado + "01";
 
-    printf("\n%s", print_nome_cidade);
-    scanf("%s", nome_cidade);
+    char nome_cidade[50] = "Ceara";
+    char codigo[3] = "A01";
+    populacao = 92680836;
+    area = 148.894442;
+    pib = 4.18;
+    turismo = 6;
 
-    printf("\n%s", print_populacao);
-    scanf("%d", &populacao);
+    char nome_cidade2[50] = "Ceara";
+    char codigo[3] = "A01";
+    populacao = 92680836;
+    area = 148.894442;
+    pib = 4.18;
+    turismo = 6;
 
+    printf("\n%s %s", print_codigo, codigo);
 
-    printf("\n%s", print_area);
-    scanf("%f", &area);
+    printf("\n%s %s", print_nome_cidade, nome_cidade);
 
-    printf("\n%s", print_pib);
-    scanf("%f", &pib);
+    printf("\n%s %d", print_populacao, populacao);
 
-    printf("\n%s", print_turismo);
-    scanf("%d", &turismo);
+    printf("\n%s %f", print_area, area);
+  
+    printf("\n%s %f", print_pib, pib);
+    
+    printf("\n%s %d", print_turismo, turismo);
+    
    
    
     
