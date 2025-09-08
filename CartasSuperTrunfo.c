@@ -1,22 +1,43 @@
 #include <stdio.h>
+#include <string.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
+typedef struct {
+    char codigo[4];
+    char nome[50];
+    int populacao;
+    float area;
+    float pib;
+    int turismo;
+} Carta;
 
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
+    Carta cartas[] = {
+        {"A01", "Ceara",    9268836, 148894.442, 4.18, 6},
+        {"B01", "Amazonas", 4281209, 1571000.0,  9.86, 10}
+    };
+    int num_cartas = sizeof(cartas)/sizeof(cartas[0]);
 
+    char estado;
+    printf("\nEstado (A para Ceara, B para Amazonas): ");
+    scanf(" %c", &estado); // espaço antes do %c para ignorar '\n'
+
+    int encontrada = 0;
+    for (int i = 0; i < num_cartas; i++) {
+        if ((estado == 'A' && strcmp(cartas[i].codigo, "A01") == 0) ||
+            (estado == 'B' && strcmp(cartas[i].codigo, "B01") == 0)) {
+            printf("\nCARTA %d\n", i+1);
+            printf("Codigo: %s\n", cartas[i].codigo);
+            printf("Nome Cidade: %s\n", cartas[i].nome);
+            printf("População: %d\n", cartas[i].populacao);
+            printf("Área: %.3f km²\n", cartas[i].area);
+            printf("PIB: %.2f%%\n", cartas[i].pib);
+            printf("Número de Pontos Turísticos: %d\n", cartas[i].turismo);
+            encontrada = 1;
+            break;
+        }
+    }
+    if (!encontrada) {
+        printf("CARTA NÃO EXISTE\n");
+    }
     return 0;
 }
